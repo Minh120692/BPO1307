@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { useEffect, useRef, useState } from "react";
 import ContactForm from "../common/ContactForm";
 
@@ -42,7 +43,7 @@ export default function FinalCtaMobileForm() {
             ref={panelRef}
           >
             <div className="form-header">
-              <img src="/assets/logo-removebg-preview.png" alt="ECのミカタ" className="form-logo" />
+              <Image src="/assets/logo-removebg-preview.png" alt="ECのミカタ" className="form-logo" width={523} height={477} style={{ width: "auto" }} />
             </div>
             <p className="form-title">無料相談フォーム</p>
             <p className="form-subtitle">30秒で入力完了。WA+CRAFTミカタ担当者からご連絡します。</p>

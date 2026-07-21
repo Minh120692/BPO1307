@@ -1,5 +1,6 @@
 "use client";
 
+import Image from "next/image";
 import { scrollToContactForm } from "../common/scrollToContactForm";
 
 export default function Header() {
@@ -12,11 +13,11 @@ export default function Header() {
       <div className="container-xl">
         <div className="header-inner">
           <div className="header-logo">
-            <img src="/assets/wacrlogonew.svg" alt="EC Support Match" className="logo-img" />
+            <Image src="/assets/wacrlogonew.svg" alt="EC Support Match" className="logo-img" width={558} height={750} unoptimized priority style={{ width: "auto" }} />
           </div>
           <div className="header-center">
             <div className="header-tel">
-              <img src="/assets/mail3.png" alt="" className="tel-icon" />
+              <Image src="/assets/mail3.png" alt="" className="tel-icon" width={328} height={253} />
               <span className="tel-label">Email Address</span>
               <a
                 href="https://mail.google.com/mail/?view=cm&fs=1&to=nomoto-t@waccraft-jp.com"
@@ -37,7 +38,7 @@ export default function Header() {
               aria-label="Consult Free Now"
               onClick={handleHeaderCtaClick}
             >
-              <img src="/assets/arrow2.png" alt="Consult Free Now" className="header-cta-image" />
+              <Image src="/assets/arrow2.png" alt="Consult Free Now" className="header-cta-image" width={453} height={205} style={{ height: "auto" }} />
             </button>
           </div>
         </div>

@@ -1,9 +1,183 @@
-@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css");
-@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+/* ===== GRID & UTILITIES (thay Bootstrap) =====
+   Self-hosted replacement for the former Bootstrap 5.3.2 + bootstrap-icons
+   CDN imports. Implements ONLY the Bootstrap classes actually used in this
+   project (see spec Implementation Notes for the full inventory), plus the
+   minimal Reboot base rules the page's rendering depended on. Values are
+   copied from Bootstrap 5.3 to keep pixel-identical behavior. */
+
+/* --- Reboot subset (base element rules the page relied on) --- */
+body {
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  -webkit-text-size-adjust: 100%;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin-top: 0;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  line-height: 1.2;
+}
+h1 { font-size: calc(1.375rem + 1.5vw); }
+h2 { font-size: calc(1.325rem + 0.9vw); }
+h3 { font-size: calc(1.3rem + 0.6vw); }
+h4 { font-size: calc(1.275rem + 0.3vw); }
+h5 { font-size: 1.25rem; }
+h6 { font-size: 1rem; }
+@media (min-width: 1200px) {
+  h1 { font-size: 2.5rem; }
+  h2 { font-size: 2rem; }
+  h3 { font-size: 1.75rem; }
+  h4 { font-size: 1.5rem; }
+}
+p { margin-top: 0; margin-bottom: 1rem; }
+b, strong { font-weight: bolder; }
+small { font-size: 0.875em; }
+img, svg { vertical-align: middle; }
+table { caption-side: bottom; border-collapse: collapse; }
+caption { padding-top: 0.5rem; padding-bottom: 0.5rem; color: rgba(33, 37, 41, 0.75); text-align: left; }
+th { text-align: -webkit-match-parent; }
+thead, tbody, tfoot, tr, td, th { border-color: inherit; border-style: solid; border-width: 0; }
+label { display: inline-block; }
+button { border-radius: 0; }
+input, button, select, optgroup, textarea {
+  margin: 0;
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+}
+button, select { text-transform: none; }
+button, [type="button"], [type="reset"], [type="submit"] { -webkit-appearance: button; }
+button:not(:disabled),
+[type="button"]:not(:disabled),
+[type="reset"]:not(:disabled),
+[type="submit"]:not(:disabled) { cursor: pointer; }
+
+/* --- Containers (Bootstrap 5.3 values, gutter 1.5rem -> 12px padding) --- */
+.container, .container-xl {
+  --bs-gutter-x: 1.5rem;
+  width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-right: auto;
+  margin-left: auto;
+}
+@media (min-width: 576px)  { .container { max-width: 540px; } }
+@media (min-width: 768px)  { .container { max-width: 720px; } }
+@media (min-width: 992px)  { .container { max-width: 960px; } }
+@media (min-width: 1200px) { .container, .container-xl { max-width: 1140px; } }
+@media (min-width: 1400px) { .container, .container-xl { max-width: 1320px; } }
+
+/* --- Grid (row / col-*, gutters via CSS variables like Bootstrap) --- */
+.row {
+  --bs-gutter-x: 1.5rem;
+  --bs-gutter-y: 0;
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: calc(-1 * var(--bs-gutter-y));
+  margin-right: calc(-0.5 * var(--bs-gutter-x));
+  margin-left: calc(-0.5 * var(--bs-gutter-x));
+}
+.row > * {
+  flex-shrink: 0;
+  width: 100%;
+  max-width: 100%;
+  padding-right: calc(var(--bs-gutter-x) * 0.5);
+  padding-left: calc(var(--bs-gutter-x) * 0.5);
+  margin-top: var(--bs-gutter-y);
+}
+.col { flex: 1 0 0%; }
+.col-4  { flex: 0 0 auto; width: 33.33333333%; }
+.col-6  { flex: 0 0 auto; width: 50%; }
+.col-8  { flex: 0 0 auto; width: 66.66666667%; }
+.col-12 { flex: 0 0 auto; width: 100%; }
+@media (min-width: 576px) {
+  .col-sm-10 { flex: 0 0 auto; width: 83.33333333%; }
+  .offset-sm-1 { margin-left: 8.33333333%; }
+}
+@media (min-width: 768px) {
+  .col-md-4  { flex: 0 0 auto; width: 33.33333333%; }
+  .col-md-6  { flex: 0 0 auto; width: 50%; }
+  .col-md-12 { flex: 0 0 auto; width: 100%; }
+}
+@media (min-width: 992px) {
+  .col-lg-4 { flex: 0 0 auto; width: 33.33333333%; }
+  .col-lg-5 { flex: 0 0 auto; width: 41.66666667%; }
+  .col-lg-6 { flex: 0 0 auto; width: 50%; }
+}
+/* Gutter utilities (Bootstrap spacer 4 = 1.5rem = 24px) */
+.g-0, .gx-0 { --bs-gutter-x: 0; }
+.g-0 { --bs-gutter-y: 0; }
+.g-4 { --bs-gutter-x: 1.5rem; }
+.g-4, .gy-4 { --bs-gutter-y: 1.5rem; }
+
+/* --- Display utilities (d-none intentionally last per group, like Bootstrap) --- */
+.d-block { display: block !important; }
+.d-flex { display: flex !important; }
+.d-none { display: none !important; }
+@media (min-width: 576px) {
+  .d-sm-block { display: block !important; }
+  .d-sm-none { display: none !important; }
+}
+@media (min-width: 768px) {
+  .d-md-inline { display: inline !important; }
+  .d-md-block { display: block !important; }
+  .d-md-none { display: none !important; }
+}
+
+/* --- Flex utilities --- */
+.flex-column { flex-direction: column !important; }
+.align-items-center { align-items: center !important; }
+.justify-content-center { justify-content: center !important; }
+.justify-content-end { justify-content: flex-end !important; }
+
+/* --- Spacing utilities (Bootstrap scale: 2=.5rem 3=1rem 4=1.5rem 5=3rem) --- */
+.me-2 { margin-right: 0.5rem !important; }
+.mt-3 { margin-top: 1rem !important; }
+.mt-4 { margin-top: 1.5rem !important; }
+.mb-5 { margin-bottom: 3rem !important; }
+
+/* --- Text utilities --- */
+.text-center { text-align: center !important; }
+@media (min-width: 768px) {
+  .text-md-start { text-align: left !important; }
+}
+
+/* --- Misc Bootstrap classes still referenced in markup --- */
+.visible { visibility: visible !important; }
+.btn {
+  display: inline-block;
+  padding: 0.375rem 0.75rem;
+  font-family: inherit;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.5;
+  color: #212529;
+  text-align: center;
+  text-decoration: none;
+  vertical-align: middle;
+  cursor: pointer;
+  user-select: none;
+  background-color: transparent;
+  border: 1px solid transparent;
+  border-radius: 0.375rem;
+  transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+    border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+/* --- Inline SVG replacement for bootstrap-icons glyphs --- */
+.bi {
+  display: inline-block;
+  width: 1em;
+  height: 1em;
+  vertical-align: -0.125em;
+  fill: currentColor;
+}
+/* ===== END GRID & UTILITIES (thay Bootstrap) ===== */
 
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; }
-body { font-family: 'Noto Sans JP', sans-serif; color: #140650; margin: 0; padding: 0; overflow-x: hidden; }
+body { font-family: inherit; color: #140650; margin: 0; padding: 0; overflow-x: hidden; }
 body::before {
   content: "";
   position: fixed;
@@ -1218,11 +1392,18 @@ iframe[title="Channel chat"] {
   border-radius: 999px;
   background: linear-gradient(135deg, var(--color-cta-orange) 0%, var(--color-cta-red) 100%);
   color: #fff;
-  font-weight: 800;
+  font-weight: 900; /* chỉ nạp 400/500/700/900 qua next/font — 800 không tồn tại */
   line-height: 1.2;
   cursor: pointer;
   box-shadow: 0 10px 24px rgba(240, 68, 56, 0.24);
   transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-cta-btn:disabled,
+.mid-page-cta-btn:disabled,
+.floating-cta-btn:disabled {
+  opacity: 0.65;
+  pointer-events: none;
 }
 
 .hero-cta-btn:hover,
@@ -1251,7 +1432,7 @@ iframe[title="Channel chat"] {
 
 .mid-page-cta-lead {
   margin: 0;
-  color: var(--color-primary-dark, #140650);
+  color: var(--color-heading);
   font-size: 15px;
   font-weight: 700;
 }
@@ -1261,17 +1442,25 @@ iframe[title="Channel chat"] {
   font-size: 17px;
 }
 
+/* Mặc định ẩn; chỉ hiện ở đúng dải mà sidebar bị ẩn (max-width:1100px) —
+   dùng cùng một điều kiện media với sidebar để không có khe hở 1px nào
+   khiến cả hai cùng hiện. */
 .floating-cta {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  z-index: 900;
-  display: flex;
-  justify-content: center;
-  padding: 12px 16px;
-  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
-  pointer-events: none;
+  display: none;
+}
+@media (max-width: 1100px) {
+  .floating-cta {
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 900;
+    display: flex;
+    justify-content: center;
+    padding: 12px 16px;
+    padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+    pointer-events: none;
+  }
 }
 
 .floating-cta-btn {
@@ -1287,10 +1476,3 @@ iframe[title="Channel chat"] {
   display: none;
 }
 
-/* サイドバーフォームが表示される幅（≥1101px）ではフローティングボタン非表示
-   ※ .sidebar-form-area は max-width:1100px で display:none になるため同一境界 */
-@media (min-width: 1101px) {
-  .floating-cta {
-    display: none;
-  }
-}

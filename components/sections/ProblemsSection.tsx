@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeader from "../ui/SectionHeader";
 
 export default function ProblemsSection() {
@@ -16,7 +17,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new1.png" alt="" className="problem-icon" />
+                <Image src="/assets/new1.png" alt="" className="problem-icon" width={194} height={180} />
                 <h3 className="problem-title">人材不足で業務が回らない  </h3>
               </div>
               <ul className="problem-solve-list">
@@ -30,7 +31,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new2.png" alt="" className="problem-icon" />
+                <Image src="/assets/new2.png" alt="" className="problem-icon" width={253} height={226} />
                 <h3 className="problem-title">定型業務で手一杯</h3>
               </div>
               <ul className="problem-solve-list">
@@ -45,7 +46,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new31.png" alt="" className="problem-icon" />
+                <Image src="/assets/new31.png" alt="" className="problem-icon" width={460} height={383} />
                 <h3 className="problem-title"> 生産性が向上しない</h3>
               </div>
               <ul className="problem-solve-list">
@@ -60,7 +61,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new4.png" alt="" className="problem-icon" />
+                <Image src="/assets/new4.png" alt="" className="problem-icon" width={246} height={214} />
                 <h3 className="problem-title">業務改善が進まない </h3>
               </div>
               <ul className="problem-solve-list">
@@ -75,7 +76,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new5.png" alt="" className="problem-icon" />
+                <Image src="/assets/new5.png" alt="" className="problem-icon" width={203} height={253} />
                 <h3 className="problem-title">業務量に対応できない</h3>
               </div>
               <ul className="problem-solve-list">
@@ -90,7 +91,7 @@ export default function ProblemsSection() {
           <div className="col-md-4">
             <div className="problem-card fade-in visible">
               <div className="problem-card-header">
-                <img src="/assets/new6.png" alt="" className="problem-icon" />
+                <Image src="/assets/new6.png" alt="" className="problem-icon" width={214} height={235} />
                 <h3 className="problem-title">属人化で標準化が難しい</h3>
               </div>
               <ul className="problem-solve-list">

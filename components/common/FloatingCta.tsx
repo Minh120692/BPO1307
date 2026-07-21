@@ -4,26 +4,39 @@ import { useEffect, useState } from "react";
 import { scrollToContactForm } from "./scrollToContactForm";
 
 export default function FloatingCta() {
-  const [formSectionVisible, setFormSectionVisible] = useState(false);
+  // Fail closed: chỉ hiện nút sau khi observer xác nhận form/footer KHÔNG
+  // trong viewport — nếu môi trường thiếu IntersectionObserver hoặc không tìm
+  // thấy section, nút giữ trạng thái ẩn để không bao giờ che form.
+  const [visible, setVisible] = useState(false);
 
   useEffect(() => {
-    // Watch the whole mobile form section (owns #mobile-form-panel and the
-    // toggle button): while any part of it is in the viewport, hide the
-    // floating button so it never covers the form or its status messages.
-    const formSection = document.querySelector(".mobile-final-form");
+    // Theo dõi cả section form mobile lẫn footer: nút ẩn khi một trong hai
+    // đang hiện để không che form controls, status message hay link footer.
+    const targets = [
+      document.querySelector(".mobile-final-form"),
+      document.querySelector("footer"),
+    ].filter((el): el is Element => el !== null);
 
-    if (!formSection || typeof IntersectionObserver === "undefined") {
+    if (targets.length === 0 || typeof IntersectionObserver === "undefined") {
       return;
     }
 
+    const intersecting = new Set<Element>();
     const observer = new IntersectionObserver(
-      ([entry]) => {
-        setFormSectionVisible(entry.isIntersecting);
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            intersecting.add(entry.target);
+          } else {
+            intersecting.delete(entry.target);
+          }
+        });
+        setVisible(intersecting.size === 0);
       },
       { threshold: 0 },
     );
 
-    observer.observe(formSection);
+    targets.forEach((el) => observer.observe(el));
 
     return () => {
       observer.disconnect();
@@ -31,10 +44,7 @@ export default function FloatingCta() {
   }, []);
 
   return (
-    <div
-      className="floating-cta"
-      data-form-visible={formSectionVisible ? "true" : "false"}
-    >
+    <div className="floating-cta" data-form-visible={visible ? "false" : "true"}>
       <button
         type="button"
         className="floating-cta-btn"

@@ -36,6 +36,10 @@ export function scrollToContactForm(): void {
   );
 
   if (firstInput) {
-    firstInput.focus({ preventScroll: true });
+    // Trì hoãn focus: gọi focus() ngay sau scrollIntoView({behavior:"smooth"})
+    // sẽ hủy cuộn mượt trên một số engine (Safari).
+    window.setTimeout(() => {
+      firstInput.focus({ preventScroll: true });
+    }, 400);
   }
 }

@@ -1,3 +1,4 @@
+import Image from "next/image";
 import SectionHeader from "../ui/SectionHeader";
 
 export default function HowItWorksSection() {
@@ -19,7 +20,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">01</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/icontn.png" alt="" className="step-illust" />
+              <Image src="/assets/icontn.png" alt="" className="step-illust" width={326} height={344} />
             </div>
             <div className="step-body">
               <h3 className="step-title">お問い合わせ受付</h3>
@@ -33,7 +34,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">02</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/ksat2.png" alt="" className="step-illust step-illust-tall" />
+              <Image src="/assets/ksat2.png" alt="" className="step-illust step-illust-tall" width={351} height={336} />
             </div>
             <div className="step-body">
               <h3 className="step-title">ヒアリング・業務分析
@@ -48,7 +49,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">03</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/dexuat2.png" alt="" className="step-illust" />
+              <Image src="/assets/dexuat2.png" alt="" className="step-illust" width={345} height={336} />
             </div>
             <div className="step-body">
               <h3 className="step-title">ご提案・お見積り・契約締結 </h3>
@@ -61,7 +62,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">04</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/trienkhai.png" alt="" className="step-illust" />
+              <Image src="/assets/trienkhai.png" alt="" className="step-illust" width={306} height={365} />
             </div>
             <div className="step-body">
               <h3 className="step-title"> 業務運用・対応実施
@@ -75,7 +76,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">05</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/bangiao.png" alt="" className="step-illust" />
+              <Image src="/assets/bangiao.png" alt="" className="step-illust" width={350} height={349} />
             </div>
             <div className="step-body">
               <h3 className="step-title">成果物提出・進捗共有
@@ -90,7 +91,7 @@ export default function HowItWorksSection() {
               <span className="step-badge-num">06</span>
             </div>
             <div className="step-illust-wrap">
-              <img src="/assets/iconbt.png" alt="" className="step-illust" />
+              <Image src="/assets/iconbt.png" alt="" className="step-illust" width={250} height={253} />
             </div>
             <div className="step-body">
               <h3 className="step-title">フィードバック対応・継続改善

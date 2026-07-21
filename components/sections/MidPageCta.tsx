@@ -1,6 +1,4 @@
-"use client";
-
-import { scrollToContactForm } from "../common/scrollToContactForm";
+import CtaButton from "../common/CtaButton";
 
 export default function MidPageCta() {
   return (
@@ -10,13 +8,7 @@ export default function MidPageCta() {
           <p className="mid-page-cta-lead">
             30秒で入力完了。WA+CRAFT担当者よりご連絡します。
           </p>
-          <button
-            type="button"
-            className="mid-page-cta-btn"
-            onClick={() => scrollToContactForm()}
-          >
-            無料相談はこちら
-          </button>
+          <CtaButton className="mid-page-cta-btn" label="無料相談はこちら" />
         </div>
       </div>
     </section>

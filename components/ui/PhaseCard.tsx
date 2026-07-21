@@ -1,3 +1,4 @@
+import Image from "next/image";
 import type { ReactNode } from "react";
 
 type PhaseCardProps = {
@@ -13,6 +14,10 @@ type PhaseCardProps = {
   items: ReactNode[];
   /** Left column illustration source. */
   imgSrc: string;
+  /** Intrinsic pixel width of the illustration file. */
+  imgWidth: number;
+  /** Intrinsic pixel height of the illustration file. */
+  imgHeight: number;
   /** Right column heading (card 1 historically renders "効果:"). */
   rightTitle?: ReactNode;
   /** Right column checklist items. */
@@ -32,6 +37,8 @@ export default function PhaseCard({
   leftTitle = "取り組み",
   items,
   imgSrc,
+  imgWidth,
+  imgHeight,
   rightTitle = "効果",
   effects,
 }: PhaseCardProps) {
@@ -61,7 +68,13 @@ export default function PhaseCard({
               </div>
               <div className="col-4 d-flex align-items-center justify-content-end">
                 <div className="col-img-wrap">
-                  <img src={imgSrc} alt="" style={{ width: "100%" }} />
+                  <Image
+                    src={imgSrc}
+                    alt=""
+                    width={imgWidth}
+                    height={imgHeight}
+                    style={{ width: "100%", height: "auto" }}
+                  />
                 </div>
               </div>
             </div>

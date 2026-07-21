@@ -29,6 +29,8 @@ export default function ScopeSection() {
             "プロセス改善による無駄工程の排除",
           ]}
           imgSrc="/img/point01.png"
+          imgWidth={316}
+          imgHeight={356}
           rightTitle="効果:"
           effects={[
             "運用時間とコストの大幅削減",
@@ -51,6 +53,8 @@ export default function ScopeSection() {
             "AIによる自動チェック・照合",
           ]}
           imgSrc="/img/point02.png"
+          imgWidth={314}
+          imgHeight={346}
           effects={[
             "高品質なアウトプットの維持",
             "正確かつ一貫した業務品質の実現",
@@ -72,6 +76,8 @@ export default function ScopeSection() {
             "運用の継続的なモニタリング・アップデート",
           ]}
           imgSrc="/img/point03.png"
+          imgWidth={291}
+          imgHeight={310}
           effects={[
             "属人化の解消",
             "人員変動に左右されない安定した品質",
