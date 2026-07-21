@@ -1,15 +1,17 @@
+import SectionHeader from "../ui/SectionHeader";
+
 export default function HowItWorksSection() {
   return (
     <section className="section-how" id="how">
       <div className="container-xl">
-        <div className="section-header mb-5">
-          <span className="section-en-bg">HOW IT WORKS</span>
-          <div className="section-heading">
-            <span className="section-heading-label">ご利用の</span>
-            <span className="section-heading-title">流れ</span>
-          </div>
-          <p className="section-desc mt-3">最短1営業日でご提案。フォーム送信から商談まで、<br role="presentation" />すべて無料でサポートします。</p>
-        </div>
+        <SectionHeader
+          bgText="HOW IT WORKS"
+          className="mb-5"
+          label="ご利用の"
+          title="流れ"
+          descClassName="mt-3"
+          desc={<>最短1営業日でご提案。フォーム送信から商談まで、<br role="presentation" />すべて無料でサポートします。</>}
+        />
         <div className="how-steps">
           <div className="how-step fade-in visible">
             <div className="step-badge">

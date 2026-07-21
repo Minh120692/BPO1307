@@ -7,3 +7,7 @@
 - source_spec: `_bmad-output/implementation-artifacts/spec-urgent-landing-fixes.md`
   summary: Add abuse protection (rate limiting and honeypot/CAPTCHA) to the public unauthenticated POST /api/contact endpoint.
   evidence: Both review agents flagged that each request can trigger an outbound Resend email, making the endpoint usable for email flooding and quota exhaustion; anti-spam was explicitly out of this spec's scope and is already tracked as task 1.4b / section (e) in the project notes.
+
+- source_spec: none
+  summary: Add a social-proof section (client logos, real metrics, testimonials) to the landing page (task 9.5 in note1.xlsx).
+  evidence: Deferred by user decision 2026-07-22 — requires real WA+CRAFT customer content that cannot be fabricated; all other Cao-priority UX items proceed without it.

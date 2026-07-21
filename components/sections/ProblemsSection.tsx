@@ -1,15 +1,17 @@
+import SectionHeader from "../ui/SectionHeader";
+
 export default function ProblemsSection() {
   return (
     <section className="section-problems" id="problems">
       <div className="container-xl">
-        <div className="section-header mb-5">
-          <span className="section-en-bg">YOUR PROBLEMS</span>
-          <div className="section-heading">
-            <span className="section-heading-label">日々の業務の中で,</span>
-            <span className="section-heading-title">このようなお悩みはありませんか？</span>
-          </div>
-          <p className="section-desc mt-3">一つでも当てはまる場合は、<br className="pc-only" role="presentation" />BPOサービスの活用によって業務効率化・生産性向上につながる可能性があります。</p>
-        </div>
+        <SectionHeader
+          bgText="YOUR PROBLEMS"
+          className="mb-5"
+          label="日々の業務の中で,"
+          title="このようなお悩みはありませんか？"
+          descClassName="mt-3"
+          desc={<>一つでも当てはまる場合は、<br className="pc-only" role="presentation" />BPOサービスの活用によって業務効率化・生産性向上につながる可能性があります。</>}
+        />
         <div className="row g-4 problems-grid">
           <div className="col-md-4">
             <div className="problem-card fade-in visible">

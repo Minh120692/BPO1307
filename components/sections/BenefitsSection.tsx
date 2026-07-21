@@ -1,15 +1,17 @@
+import SectionHeader from "../ui/SectionHeader";
+
 export default function BenefitsSection() {
   return (
     <section className="section-benefits" id="benefits">
       <div className="container-xl">
-        <div className="section-header mb-5">
-          <span className="section-en-bg">BENEFITS</span>
-          <div className="section-heading">
-            <span className="section-heading-label">最適な付加価値の提供</span>
-            <span className="section-heading-title">貴社の成長に伴走します</span>
-          </div>
-          <p className="section-desc mt-3">私たちは、貴社の事業にとって最も必要とされる価値を、 <br />妥協することなく提供し続けることに努めてまいります。</p>
-        </div>
+        <SectionHeader
+          bgText="BENEFITS"
+          className="mb-5"
+          label="最適な付加価値の提供"
+          title="貴社の成長に伴走します"
+          descClassName="mt-3"
+          desc={<>私たちは、貴社の事業にとって最も必要とされる価値を、 <br />妥協することなく提供し続けることに努めてまいります。</>}
+        />
         <div className="row g-4 justify-content-center">
           <div className="col-12 col-md-6 col-lg-4">
             <div className="benefit-card fade-in visible">

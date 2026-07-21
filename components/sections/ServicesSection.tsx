@@ -1,17 +1,19 @@
+import SectionHeader from "../ui/SectionHeader";
+
 export default function ServicesSection() {
   return (
     <section className="section-services" id="services">
       <div className="container-xl">
-        <div className="section-header mb-5">
-          <span className="section-en-bg">OUR SERVICES</span>
-          <div className="section-heading">
-            <span className="section-heading-label">提供サービス</span>
-            <span className="section-heading-title">業務フローに合わせて柔軟に対応します。<div className="d-none d-sm-none d-md-inline"></div></span>
-          </div>
-          <p className="section-desc mt-3">お客様の業務フローに合わせて、<br className="pc-only" role="presentation" /> 日本語対応可能なベトナム人高度人材とAI自動化を組み合わせ、<br className="pc-only" role="presentation" />
+        <SectionHeader
+          bgText="OUR SERVICES"
+          className="mb-5"
+          label="提供サービス"
+          title={<>業務フローに合わせて柔軟に対応します。<div className="d-none d-sm-none d-md-inline"></div></>}
+          descClassName="mt-3"
+          desc={<>お客様の業務フローに合わせて、<br className="pc-only" role="presentation" /> 日本語対応可能なベトナム人高度人材とAI自動化を組み合わせ、<br className="pc-only" role="presentation" />
             各種デジタル業務・提携業務を柔軟にサポートします。
-          </p>
-
+          </>}
+        >
           <div className="row g-4 justify-content-center">
             <div className="col-lg-4 col-md-6 col-6">
               <div className="service-blue-card">
@@ -69,7 +71,7 @@ export default function ServicesSection() {
               </div>
             </div>
           </div>
-        </div>
+        </SectionHeader>
       </div>
     </section>
   );

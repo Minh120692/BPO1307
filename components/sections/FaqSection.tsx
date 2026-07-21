@@ -2,17 +2,18 @@
 // and it targeted `.faq-answer`/`.faq-toggle` elements absent from the markup
 // (which uses `.faq-answer-new`). It is intentionally not ported, so this
 // section stays a server component; answers are always visible, as before.
+import SectionHeader from "../ui/SectionHeader";
+
 export default function FaqSection() {
   return (
     <section className="section-faq" id="faq">
       <div className="container-xl">
-        <div className="section-header mb-5">
-          <span className="section-en-bg">FAQ</span>
-          <div className="section-heading">
-            <span className="section-heading-label">よくある</span>
-            <span className="section-heading-title">ご質問</span>
-          </div>
-        </div>
+        <SectionHeader
+          bgText="FAQ"
+          className="mb-5"
+          label="よくある"
+          title="ご質問"
+        />
         <div className="faq-list">
           <div className="faq-item">
             <div className="faq-question-new">
