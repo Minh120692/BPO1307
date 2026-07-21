@@ -9,7 +9,9 @@ import ComparisonSection from "../components/sections/ComparisonSection";
 import BenefitsSection from "../components/sections/BenefitsSection";
 import HowItWorksSection from "../components/sections/HowItWorksSection";
 import FaqSection from "../components/sections/FaqSection";
+import MidPageCta from "../components/sections/MidPageCta";
 import FinalCtaMobileForm from "../components/sections/FinalCtaMobileForm";
+import FloatingCta from "../components/common/FloatingCta";
 import CompanyModal from "../components/common/CompanyModal";
 import RevealOnScroll from "../components/common/RevealOnScroll";
 
@@ -24,6 +26,7 @@ export default function HomePage() {
           <ProblemsSection />
           <ScopeSection />
           <ServicesSection />
+          <MidPageCta />
           <ComparisonSection />
           <BenefitsSection />
           <HowItWorksSection />
@@ -34,6 +37,7 @@ export default function HomePage() {
         {/* ===== 右側固定フォームサイドバー ===== */}
         <SidebarFormArea />
       </div>
+      <FloatingCta />
       <CompanyModal />
       <RevealOnScroll />
     </>

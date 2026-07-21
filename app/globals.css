@@ -1202,3 +1202,95 @@ iframe[title="Channel chat"] {
     line-height: 1.35;
   }
 }
+
+/* ===== CONVERSION CTA（ヒーロー / 中間 / フローティング） ===== */
+.hero-cta {
+  margin-top: 20px;
+}
+
+.hero-cta-btn,
+.mid-page-cta-btn,
+.floating-cta-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  border: 0;
+  border-radius: 999px;
+  background: linear-gradient(135deg, var(--color-cta-orange) 0%, var(--color-cta-red) 100%);
+  color: #fff;
+  font-weight: 800;
+  line-height: 1.2;
+  cursor: pointer;
+  box-shadow: 0 10px 24px rgba(240, 68, 56, 0.24);
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.hero-cta-btn:hover,
+.mid-page-cta-btn:hover,
+.floating-cta-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 14px 28px rgba(240, 68, 56, 0.32);
+}
+
+.hero-cta-btn {
+  padding: 14px 36px;
+  font-size: 16px;
+}
+
+.mid-page-cta {
+  padding: 36px 0;
+}
+
+.mid-page-cta-inner {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  text-align: center;
+}
+
+.mid-page-cta-lead {
+  margin: 0;
+  color: var(--color-primary-dark, #140650);
+  font-size: 15px;
+  font-weight: 700;
+}
+
+.mid-page-cta-btn {
+  padding: 16px 48px;
+  font-size: 17px;
+}
+
+.floating-cta {
+  position: fixed;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: 900;
+  display: flex;
+  justify-content: center;
+  padding: 12px 16px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom, 0px));
+  pointer-events: none;
+}
+
+.floating-cta-btn {
+  pointer-events: auto;
+  width: 100%;
+  max-width: 420px;
+  padding: 14px 24px;
+  font-size: 15px;
+}
+
+/* フォームセクションが画面内にある間はフローティングボタンを隠す */
+.floating-cta[data-form-visible="true"] {
+  display: none;
+}
+
+/* サイドバーフォームが表示される幅（≥1101px）ではフローティングボタン非表示
+   ※ .sidebar-form-area は max-width:1100px で display:none になるため同一境界 */
+@media (min-width: 1101px) {
+  .floating-cta {
+    display: none;
+  }
+}

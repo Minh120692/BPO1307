@@ -1,3 +1,5 @@
+import CtaButton from "../common/CtaButton";
+
 function CheckIcon() {
   return (
     <svg
@@ -43,6 +45,9 @@ export default function HeroSection() {
               </li>
             ))}
           </ul>
+          <div className="hero-cta">
+            <CtaButton className="hero-cta-btn" label="無料相談はこちら" />
+          </div>
         </div>
         <div className="hero-visual">
           <p className="hero-bubble">

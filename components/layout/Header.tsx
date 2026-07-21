@@ -1,42 +1,10 @@
 "use client";
 
+import { scrollToContactForm } from "../common/scrollToContactForm";
+
 export default function Header() {
   const handleHeaderCtaClick = () => {
-    const mobileFormToggleBtn = document.querySelector<HTMLButtonElement>(
-      "[data-mobile-form-toggle]",
-    );
-    const mobileFormPanel = document.getElementById("mobile-form-panel");
-
-    const mobileToggleVisible =
-      mobileFormToggleBtn &&
-      (mobileFormToggleBtn.checkVisibility
-        ? mobileFormToggleBtn.checkVisibility()
-        : mobileFormToggleBtn.offsetParent !== null);
-
-    if (mobileToggleVisible && mobileFormPanel) {
-      if (mobileFormPanel.hasAttribute("hidden")) {
-        mobileFormToggleBtn.click();
-      } else {
-        mobileFormPanel.scrollIntoView({ behavior: "smooth", block: "start" });
-      }
-      return;
-    }
-
-    const sidebarForm = document.querySelector(".sidebar-form-area");
-
-    if (!sidebarForm) {
-      return;
-    }
-
-    sidebarForm.scrollIntoView({ behavior: "smooth", block: "start" });
-
-    const firstInput = sidebarForm.querySelector<HTMLElement>(
-      'input:not([type="hidden"]):not([type="checkbox"]):not([disabled]), textarea',
-    );
-
-    if (firstInput) {
-      firstInput.focus({ preventScroll: true });
-    }
+    scrollToContactForm();
   };
 
   return (
