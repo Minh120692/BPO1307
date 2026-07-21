@@ -1,3 +1,6 @@
+@import url("https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css");
+@import url("https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css");
+
 /* ===== RESET & BASE ===== */
 *, *::before, *::after { box-sizing: border-box; }
 body { font-family: 'Noto Sans JP', sans-serif; color: #140650; margin: 0; padding: 0; overflow-x: hidden; }
@@ -475,7 +478,7 @@ section { padding: 80px 0; }
 .faq-answer-new { background: #fff; display: flex; align-items: flex-start; gap: 16px; padding: 20px 24px; }
 .faq-answer-text { font-size: 14px; line-height: 1.8; color: #333; margin: 0; flex: 1; padding-top: 4px; font-weight: 500; }
 .faq-badge { width: 36px; height: 36px; border-radius: 50%; display: inline-grid; place-items: center; font-size: 16px; font-weight: 900; flex-shrink: 0; line-height: 1; }
-.faq-badge-q { background: #fff url('assets/Q.png') center center / 62% auto no-repeat; color: transparent; border: 1px solid rgba(20, 6, 80, 0.08); font-size: 0; }
+.faq-badge-q { background: #fff url('/assets/Q.png') center center / 62% auto no-repeat; color: transparent; border: 1px solid rgba(20, 6, 80, 0.08); font-size: 0; }
 .faq-badge-a { background: var(--teal); color: #fff; }
 
 /* ===== FINAL CTA & FORM ===== */
@@ -759,7 +762,7 @@ section { padding: 80px 0; }
   scrollbar-color: #cbd5e1 transparent;
   background:
     linear-gradient(rgba(255, 255, 255, 0.7), rgba(255, 255, 255, 0.7)),
-    url('img/backgroundtotal.jpg') center top / cover fixed no-repeat;
+    url('/img/backgroundtotal.jpg') center top / cover fixed no-repeat;
   border-left: none;
 }
 .sidebar-form-area::-webkit-scrollbar { width: 4px; }
@@ -992,7 +995,7 @@ section { padding: 80px 0; }
 
 /* ===== UNIQUE THEME OVERRIDES ===== */
 body {
-  background: url('img/backgroundtotal.jpg') center top / cover fixed no-repeat;
+  background: url('/img/backgroundtotal.jpg') center top / cover fixed no-repeat;
   position: relative;
 }
 
