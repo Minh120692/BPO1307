@@ -50,10 +50,13 @@ export default function HeroSection() {
           </div>
         </div>
         <div className="hero-visual">
-          <p className="hero-bubble">
-            こんにちは、WA+CRAFT BPOです。お客様のビジネスを支えるパートナーとして、いつでもお気軽にご相談ください。
-          </p>
-          <div className="hero-character" aria-hidden="true"></div>
+          {/* Bubble CSS được neo theo % bên trong hero-character để luôn phủ
+              kín bong bóng nướng sẵn trong ảnh gốc ở mọi kích thước. */}
+          <div className="hero-character">
+            <p className="hero-bubble">
+              こんにちは、WA+CRAFT BPOです。お客様のビジネスを支えるパートナーとして、いつでもお気軽にご相談ください。
+            </p>
+          </div>
         </div>
       </div>
     </section>

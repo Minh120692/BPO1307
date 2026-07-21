@@ -315,30 +315,34 @@ span {
 }
 .hero-visual {
   position: relative;
-  flex: 0 0 clamp(300px, 36%, 500px);
+  flex: 0 0 clamp(320px, 44%, 640px);
   min-width: 0;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
 }
-/* Right-side character zone of newbgan1.png only: with aspect-ratio 373/739
-   and `cover` + right positioning, the visible slice starts at ~72% of the
-   image width, past the baked-in headline text and speech bubble. */
+/* hero-visual.png = phần x>=688 của newbgan1.png (nhân vật + laptop + bàn +
+   cây) — đã kiểm tra trực quan không còn chữ headline nướng; riêng bong bóng
+   nướng (chiếm 0-39.7% ngang, 41.8-75.6% dọc của crop) được PHỦ bởi
+   .hero-bubble định vị theo % nên không bao giờ lộ ra ở bất kỳ kích thước nào. */
 .hero-character {
+  position: relative;
   width: 100%;
-  max-width: 430px;
-  aspect-ratio: 373 / 739;
+  max-width: 600px;
+  aspect-ratio: 643 / 739;
+  container-type: inline-size;
+  overflow: hidden;
   background:
-    url('/assets/newbgan1.png') right center / cover no-repeat,
+    url('/assets/hero-visual.png') center / cover no-repeat,
     linear-gradient(180deg, var(--color-hero-grad-2), var(--color-hero-grad-3));
 }
 .hero-bubble {
   position: absolute;
-  left: 0;
-  top: 42%; /* tầm ngực như ảnh gốc — không che mặt nhân vật */
-  width: 265px;
-  height: auto;
-  min-height: 265px;
+  /* Phủ dư ra ngoài mép bong bóng nướng ~1-1.5% mỗi phía. */
+  left: -1.5%;
+  top: 40.6%;
+  width: 42%;
+  aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--color-bubble-navy);
   /* !important để thắng rule cũ `p { color: #140650 !important }` của theme gốc */
@@ -347,30 +351,12 @@ span {
   align-items: center;
   justify-content: center;
   text-align: center;
-  padding: 30px;
-  font-size: 14px;
+  padding: 4.5cqw;
+  margin: 0;
+  font-size: clamp(8px, 3.1cqw, 15px);
   font-weight: 700;
-  line-height: 1.9;
+  line-height: 1.85;
   z-index: 2;
-  box-shadow: 0 10px 26px rgba(20, 6, 80, 0.25);
-}
-/* Dưới 1100px phần visual hẹp lại nhanh hơn bubble — chuyển bubble sang xếp
-   chồng tĩnh để không che mặt nhân vật. */
-@media (max-width: 1100px) {
-  .hero-visual {
-    flex-direction: column;
-    align-items: flex-end;
-    justify-content: flex-end;
-    gap: 12px;
-  }
-  .hero-bubble {
-    position: static;
-    width: 200px;
-    min-height: 200px;
-    padding: 22px;
-    font-size: 12px;
-    margin: 0 24px 0 0;
-  }
 }
 @media (max-width: 768px) {
   .hero-subcopy-br { display: none; }
@@ -380,14 +366,9 @@ span {
   .hero-visual {
     flex: 1 1 auto;
     align-items: center;
-    gap: 16px;
+    justify-content: center;
   }
-  .hero-bubble {
-    width: 220px;
-    min-height: 220px;
-    margin: 0 auto;
-  }
-  .hero-character { max-width: 260px; }
+  .hero-character { max-width: 340px; }
 }
 
 /* ===== SECTION COMMON ===== */
