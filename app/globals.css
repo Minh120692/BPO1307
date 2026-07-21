@@ -337,13 +337,14 @@ span {
 .hero-bubble {
   position: absolute;
   left: 0;
-  top: 28%;
+  top: 45%; /* tầm ngực như ảnh gốc — không che mặt nhân vật */
   width: 235px;
   height: auto;
   min-height: 235px;
   border-radius: 50%;
   background: var(--color-bubble-navy);
-  color: #fff;
+  /* !important để thắng rule cũ `p { color: #140650 !important }` của theme gốc */
+  color: #fff !important;
   display: flex;
   align-items: center;
   justify-content: center;
