@@ -35,7 +35,7 @@ export default function HeroSection() {
           <p className="hero-brand">WA+CRAFT BPO</p>
           <h1 className="hero-headline">業務プロセスの最適化!</h1>
           <p className="hero-subcopy">
-            <span className="hero-accent">日本語対応</span> × <span className="hero-accent">AI自動化</span> × <span className="hero-accent">オフショアBPO</span>ソリューションで、<span className="hero-accent-orange">最短1日</span>から超高速導入!
+            <span className="hero-accent">日本語対応</span> × <span className="hero-accent">AI自動化</span> ×<br className="hero-subcopy-br" /> <span className="hero-accent">オフショアBPO</span>ソリューションで、<br className="hero-subcopy-br" /><span className="hero-accent-orange">最短1日</span>から超高速導入!
           </p>
           <ul className="hero-checklist">
             {HERO_BULLETS.map((text) => (
