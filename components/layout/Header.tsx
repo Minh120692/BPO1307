@@ -20,7 +20,7 @@ export default function Header() {
               <Image src="/assets/mail3.png" alt="" className="tel-icon" width={328} height={253} />
               <span className="tel-label">Email Address</span>
               <a
-                href="https://mail.google.com/mail/?view=cm&fs=1&to=nomoto-t@waccraft-jp.com"
+                href="https://mail.google.com/mail/?view=cm&fs=1&to=nomoto-t@wacraft-jp.com"
                 className="tel-number"
                 target="_blank"
                 rel="noopener noreferrer"
