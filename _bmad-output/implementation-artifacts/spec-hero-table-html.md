@@ -2,7 +2,7 @@
 title: 'Hero content and comparison table: from images to real HTML'
 type: 'feature'
 created: '2026-07-22'
-status: 'ready-for-dev'
+status: 'done'
 review_loop_iteration: 0
 context: []
 ---
@@ -45,10 +45,10 @@ context: []
 ## Tasks & Acceptance
 
 **Execution:**
-- [ ] `components/sections/HeroSection.tsx` -- Rebuild: `<h1>` headline, sub-copy line, 3 checkmark bullet items, all from Design Notes transcription; keep the section CTA-free (header/sidebar own conversion) unless a CTA already existed; illustration (character) shown via `background-image` or side `<img>` with empty-alt (decorative), gradient fallback -- hero becomes indexable and editable
-- [ ] `app/globals.css` -- New hero layout styles reusing existing tokens; remove the `margin: -75px 0 0` hack if present (task 8's cleanup falls out naturally); responsive stack at existing breakpoints -- clean layout without the old negative-margin patch
-- [ ] `components/sections/ComparisonTable.tsx` -- Semantic table per transcription: caption 「WA+CRAFT BPOにお任せください！」(or keep it as the section heading if one exists), 4 columns, 5 rows, ×/△/◎ markers with `aria-hidden` + visually-hidden text equivalents (劣る/普通/優れる), WA+CRAFT column highlighted -- accessible, indexable comparison
-- [ ] `components/sections/ComparisonSection.tsx` -- Replace the `<img>` with `<ComparisonTable />` inside an `overflow-x:auto` wrapper -- responsive swap
+- [x] `components/sections/HeroSection.tsx` -- Rebuild: `<h1>` headline, sub-copy line, 3 checkmark bullet items, all from Design Notes transcription; keep the section CTA-free (header/sidebar own conversion) unless a CTA already existed; illustration (character) shown via `background-image` or side `<img>` with empty-alt (decorative), gradient fallback -- hero becomes indexable and editable
+- [x] `app/globals.css` -- New hero layout styles reusing existing tokens; remove the `margin: -75px 0 0` hack if present (task 8's cleanup falls out naturally); responsive stack at existing breakpoints -- clean layout without the old negative-margin patch
+- [x] `components/sections/ComparisonTable.tsx` -- Semantic table per transcription: caption 「WA+CRAFT BPOにお任せください！」(or keep it as the section heading if one exists), 4 columns, 5 rows, ×/△/◎ markers with `aria-hidden` + visually-hidden text equivalents (劣る/普通/優れる), WA+CRAFT column highlighted -- accessible, indexable comparison
+- [x] `components/sections/ComparisonSection.tsx` -- Replace the `<img>` with `<ComparisonTable />` inside an `overflow-x:auto` wrapper -- responsive swap
 
 **Acceptance Criteria:**
 - Given `curl -s localhost:<port>/`, when grepping for 「業務プロセスの最適化」 and 「オフショア活用で」, then both appear as text in the HTML
@@ -83,3 +83,11 @@ Hero illustration: crop/reuse `newbgan1.png` as the right-side visual (text will
 
 **Manual checks (if no CLI):**
 - 360px/768px/1280px: hero text legible, no double text from the background image, table scrolls inside wrapper only.
+
+## Implementation Notes
+
+- **Illustration approach:** No clean standalone character asset existed (`woman04.svg`/`woman03.svg`/`woman051.png` are flat line-art icons that clash with the anime-style hero), so `newbgan1.png` is reused via pure CSS cropping: `.hero-character` has `aspect-ratio: 373 / 739` with `background: url('/assets/newbgan1.png') right center / cover no-repeat`. With `cover` + right positioning that geometry makes the visible slice start at ~72% of the image width (x≈958 of 1331), past both the baked-in headline text and the baked-in speech bubble — verified against a pixel crop of the source PNG. No double text at any width because the crop ratio is width-independent.
+- **Bubble treatment:** Recreated as a real CSS element — `<aside class="hero-bubble">` styled as a dark-navy (`#2a1458`) circle with white text, absolutely positioned over the left edge of the illustration on desktop; below 768px it becomes a static centered circle stacked above the character.
+- **Table min-width:** `720px` on `.comparison-table` (4 columns with the long WA+CRAFT sentences stay readable), inside `.comparison-table-wrap { overflow-x: auto; }` so only the wrapper scrolls at 360px.
+- **Cleanup done:** removed the old `.hero-mainvis-*` / `.hero-inner-wrap` / `.hero-bg-overlay` rules including the `margin: -75px 0 0` hack and the `.hero-section { background: transparent !important }` overrides; removed `.comparison-svg-*` rules. Added `.visually-hidden` utility to `globals.css`.
+- **Verification results (2026-07-22):** `npx next build` clean; on `next start -p 3131`: `業務プロセスの最適化` ×1, `オフショア活用で最大50` ×1, `newtable.jpeg` ×0, `<h1` ×1 (only h1 on the page); all transcribed strings (bullets, bubble, caption, all table cells, 劣る/普通/優れる) grep byte-exact ×1 each.

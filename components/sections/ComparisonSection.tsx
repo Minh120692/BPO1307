@@ -1,4 +1,5 @@
 import SectionHeader from "../ui/SectionHeader";
+import ComparisonTable from "./ComparisonTable";
 
 export default function ComparisonSection() {
   return (
@@ -12,11 +13,9 @@ export default function ComparisonSection() {
           descClassName="mt-3"
           desc="自社で探す方法や一括見積サイトと比べて、WA+CRAFTのマッチングサービスが選ばれる理由を比較でご確認ください。"
         />
-        <div className="comparison-svg-wrap">
-          <div className="row">
-            <div className="col-sm-10 offset-sm-1">
-              <img src="/assets/newtable.jpeg" alt="比較表" className="comparison-svg-img" role="img" />
-            </div>
+        <div className="row">
+          <div className="col-sm-10 offset-sm-1">
+            <ComparisonTable />
           </div>
         </div>
       </div>
