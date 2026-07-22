@@ -9,6 +9,11 @@ const nextConfig: NextConfig = {
         destination: "/",
         permanent: true,
       },
+      {
+        source: "/company-profile.html",
+        destination: "/company-profile",
+        permanent: true,
+      },
     ];
   },
 };

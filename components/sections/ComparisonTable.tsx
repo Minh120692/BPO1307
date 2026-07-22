@@ -56,9 +56,25 @@ const ROWS: Row[] = [
 
 export default function ComparisonTable() {
   return (
-    <div className="comparison-table-wrap">
+    <div className="comparison-design">
+      <div className="comparison-design-top">
+        <img
+          className="comparison-chara comparison-chara-woman"
+          src="/assets/compare-woman.png"
+          alt=""
+          aria-hidden="true"
+        />
+        <p className="comparison-bubble">WA+CRAFT BPOにお任せください！</p>
+        <img
+          className="comparison-chara comparison-chara-man"
+          src="/assets/compare-man.png"
+          alt=""
+          aria-hidden="true"
+        />
+      </div>
+      <div className="comparison-table-wrap">
       <table className="comparison-table">
-        <caption className="comparison-table-caption">WA+CRAFT BPOにお任せください！</caption>
+        <caption className="visually-hidden">WA+CRAFT BPOにお任せください！</caption>
         <thead>
           <tr>
             <th scope="col">比較項目</th>
@@ -89,6 +105,7 @@ export default function ComparisonTable() {
           ))}
         </tbody>
       </table>
+      </div>
     </div>
   );
 }

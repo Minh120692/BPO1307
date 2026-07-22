@@ -108,7 +108,7 @@ export default function ContactForm({ variant }: ContactFormProps) {
       <label className="sidebar-form-agree" htmlFor={`${idPrefix}-agree`}>
         <input id={`${idPrefix}-agree`} name="agree" type="checkbox" required />
         <span>
-          <a href="/company-profile.html" data-company-modal-open>
+          <a href="/company-profile" target="_blank" rel="noopener noreferrer">
             {variant === "mobile" ? "個人情報の取り扱いについて" : "個人情報の取扱いについて"}
           </a>
           同意する<span className="required">*</span>

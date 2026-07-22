@@ -12,7 +12,6 @@ import FaqSection from "../components/sections/FaqSection";
 import MidPageCta from "../components/sections/MidPageCta";
 import FinalCtaMobileForm from "../components/sections/FinalCtaMobileForm";
 import FloatingCta from "../components/common/FloatingCta";
-import CompanyModal from "../components/common/CompanyModal";
 import RevealOnScroll from "../components/common/RevealOnScroll";
 
 export default function HomePage() {
@@ -26,7 +25,6 @@ export default function HomePage() {
           <ProblemsSection />
           <ScopeSection />
           <ServicesSection />
-          <MidPageCta />
           <ComparisonSection />
           <BenefitsSection />
           <HowItWorksSection />
@@ -38,7 +36,6 @@ export default function HomePage() {
         <SidebarFormArea />
       </div>
       <FloatingCta />
-      <CompanyModal />
       <RevealOnScroll />
     </>
   );
