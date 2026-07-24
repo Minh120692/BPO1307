@@ -331,17 +331,19 @@ span {
   max-width: 600px;
   aspect-ratio: 643 / 739;
   container-type: inline-size;
-  overflow: hidden;
+  /* overflow visible để .hero-bubble không bị cắt ở mép trái. */
+  overflow: visible;
   background:
     url('/assets/hero-visual.png') center / cover no-repeat,
     linear-gradient(180deg, var(--color-hero-grad-2), var(--color-hero-grad-3));
 }
 .hero-bubble {
   position: absolute;
-  /* Phủ dư ra ngoài mép bong bóng nướng ~1-1.5% mỗi phía. */
-  left: -1.5%;
-  top: 40.6%;
-  width: 42%;
+  /* Rộng hơn bong bóng nướng (0-39.7% ngang) để phủ kín; phần dư tràn ra
+     ngoài mép trái nhờ overflow: visible nên hình tròn không bị cắt. */
+  left: -3%;
+  top: 38.8%;
+  width: 46%;
   aspect-ratio: 1 / 1;
   border-radius: 50%;
   background: var(--color-bubble-navy);
