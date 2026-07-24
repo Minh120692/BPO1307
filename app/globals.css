@@ -31,6 +31,22 @@ h6 { font-size: 1rem; }
   h4 { font-size: 1.5rem; }
 }
 p { margin-top: 0; margin-bottom: 1rem; }
+
+/* ===== Typography tiếng Nhật: ngắt dòng theo cụm nghĩa (禁則処理) ===== */
+/* line-break strict: áp dụng kinsoku nghiêm ngặt cho dấu câu Nhật */
+body { line-break: strict; }
+/* auto-phrase (Chrome 119+, cần lang="ja"): giữ nguyên cụm từ, không cắt giữa
+   từ katakana/cụm nghĩa. Trình duyệt khác giữ hành vi mặc định. */
+@supports (word-break: auto-phrase) {
+  h1, h2, h3, h4, h5, h6, p, li, dt, dd, th, td, figcaption, blockquote,
+  .section-desc, .solve-name, .step-text, .faq-answer-text {
+    word-break: auto-phrase;
+  }
+}
+/* pretty: tránh chữ mồ côi cuối đoạn (Chrome 117+) */
+h1, h2, h3, h4, h5, h6, p, li {
+  text-wrap: pretty;
+}
 b, strong { font-weight: bolder; }
 small { font-size: 0.875em; }
 img, svg { vertical-align: middle; }
@@ -1363,6 +1379,18 @@ iframe[title="Channel chat"] {
     white-space: normal !important;
     overflow-wrap: anywhere;
     word-break: break-word;
+  }
+  /* Trình duyệt hỗ trợ auto-phrase: ngắt theo cụm nghĩa thay vì cắt giữa từ.
+     overflow-wrap: break-word giữ chống tràn khẩn cấp mà không phá min-content. */
+  @supports (word-break: auto-phrase) {
+    .section-heading-title,
+    .section-heading-label,
+    .section-desc,
+    .problem-title,
+    .solve-name {
+      overflow-wrap: break-word;
+      word-break: auto-phrase;
+    }
   }
 
   .problem-card,
