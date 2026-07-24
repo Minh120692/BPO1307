@@ -451,12 +451,15 @@ section { padding: 80px 0; }
 .comparison-chara {
   width: clamp(70px, 12vw, 150px);
   height: auto;
-  flex-shrink: 0;
+  /* Cho phép co lại khi cột nội dung hẹp (sidebar chiếm chỗ) để không tràn */
+  flex-shrink: 1;
+  min-width: 52px;
 }
 .comparison-bubble {
   position: relative;
   background: #2b3b89;
-  color: #fff;
+  /* !important để thắng rule chung `p { color: #140650 !important }` */
+  color: #fff !important;
   font-weight: 900;
   font-size: clamp(17px, 2.4vw, 30px);
   line-height: 1.4;
@@ -477,6 +480,8 @@ section { padding: 80px 0; }
   border-bottom: 0;
 }
 .comparison-table-wrap {
+  /* relative để các span .visually-hidden (absolute) trong bảng không nới rộng trang */
+  position: relative;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
   background: #fff;
@@ -1337,7 +1342,8 @@ iframe[title="Channel chat"] {
     min-width: 0;
   }
 
-  .logo-img {
+  /* Chỉ áp cho logo header — tránh đè width của .footer-brand-logo */
+  .header-logo .logo-img {
     height: 52px;
     width: auto;
     max-width: 100%;
