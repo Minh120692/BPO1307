@@ -12,7 +12,7 @@ export default function ServicesSection() {
           title={<>業務フローに合わせて柔軟に対応します。<div className="d-none d-sm-none d-md-inline"></div></>}
           descClassName="mt-3"
           desc={<>お客様の業務フローに合わせて、<br className="pc-only" role="presentation" /> 日本語対応可能なベトナム人高度人材とAI自動化を組み合わせ、<br className="pc-only" role="presentation" />
-            各種デジタル業務・提携業務を柔軟にサポートします。
+            各種デジタル業務・定型業務を柔軟にサポートします。
           </>}
         >
           <div className="row g-4 justify-content-center">
@@ -56,7 +56,7 @@ export default function ServicesSection() {
                   <Image src="/assets/new10.png" alt="" width={219} height={209} style={{ height: "auto" }} />
                 </div>
                 <h3 className="service-card-title">システム情報更新</h3>
-                <p className="service-card-text">顧客情報・商品情報・在庫情報・マスタデータの更新・メンテナンス。<br className="pc-only" role="presentation" />AI自動化（ChatGPT API / RPA / マクロ）による高速処理にも対応。
+                <p className="service-card-text">顧客情報・商品情報・在庫情報・マスタデータの更新・メンテナンス。<br className="pc-only" role="presentation" />AI自動化 による高速処理にも対応。
                 </p>
               </div>
             </div>

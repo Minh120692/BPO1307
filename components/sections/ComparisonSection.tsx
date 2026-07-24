@@ -6,7 +6,7 @@ export default function ComparisonSection() {
     <section className="section-comparison" id="choose-us">
       <div className="container-xl">
         <SectionHeader
-          bgText="WHY CHOOSE US"
+          bgText="VALUE PROPOSITION"
           className="mb-5"
           label="WA+CRAFT BPO"
           title="選ばれる理由"

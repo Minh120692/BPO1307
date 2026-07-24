@@ -5,11 +5,10 @@ export default function ScopeSection() {
     <section className="section-problems" id="scope">
       <div className="container-xl">
         <div className="section-header mb-5">
-          <span className="section-en-bg">WHY CHOOSE US</span>
+          <span className="section-en-bg">VALUE PROPOSITION</span>
           <div className="section-heading">
             <span className="section-heading-label">最適化された運用ソリューション</span>
-            <span className="section-heading-title d-none d-sm-none d-md-block">従来のBPOを超えて</span>
-            <span className="section-heading-title d-block d-sm-block d-md-none">Call center selection</span>
+            <span className="section-heading-title">従来のBPOを超えて</span>
           </div>
           <p className="section-desc mt-3">私たちのBPOサービスは、専門スタッフによる業務分析と、日本語対応可能なベトナム人高度人材、そしてAIの活用を組み合わせることで、お客様一社一社の長期的な成長を支える「自動化とコスト最適化された運用メカニズム」を提供します。
             <br className="pc-only" role="presentation" /></p>
