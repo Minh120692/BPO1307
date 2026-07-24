@@ -5,7 +5,7 @@ export default function ScopeSection() {
     <section className="section-problems" id="scope">
       <div className="container-xl">
         <div className="section-header mb-5">
-          <span className="section-en-bg">VALUE PROPOSITION</span>
+          <span className="section-en-bg">WHY CHOOSE US</span>
           <div className="section-heading">
             <span className="section-heading-label">最適化された運用ソリューション</span>
             <span className="section-heading-title">従来のBPOを超えて</span>
