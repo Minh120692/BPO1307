@@ -23,9 +23,17 @@ const COMPANY_ROWS: Array<[string, React.ReactNode]> = [
   ],
   [
     "メール",
-    <a href="mailto:nomoto-t@wacraft-jp.com">nomoto-t@wacraft-jp.com</a>,
+    // wbr: chỉ được ngắt sau @; domain bọc nowrap để không gãy giữa chừng
+    <a href="mailto:nomoto-t@wacraft-jp.com" className="no-anywhere">
+      nomoto-t@<wbr /><span className="nb">wacraft-jp.com</span>
+    </a>,
   ],
-  ["ウェブサイト", "www.wacraft-jp.com"],
+  [
+    "ウェブサイト",
+    <span className="no-anywhere">
+      www.<wbr /><span className="nb">wacraft-jp.com</span>
+    </span>,
+  ],
   ["事業内容", "BPO事業（オフショア活用による業務プロセスの最適化支援）"],
 ];
 

@@ -47,6 +47,10 @@ body { line-break: strict; }
 h1, h2, h3, h4, h5, h6, p, li {
   text-wrap: pretty;
 }
+/* Email/URL: .nb giữ nguyên khối (domain), .no-anywhere tắt ngắt tùy tiện
+   để chỉ ngắt tại <wbr> đã đặt chủ đích (sau @ hoặc sau www.) */
+.nb { white-space: nowrap; }
+.no-anywhere, .no-anywhere * { overflow-wrap: normal !important; word-break: keep-all !important; }
 b, strong { font-weight: bolder; }
 small { font-size: 0.875em; }
 img, svg { vertical-align: middle; }
@@ -258,13 +262,18 @@ span {
 /* ===== HEADER ===== */
 .site-header { background: #fff; padding: 12px 0; position: sticky; top: 0; z-index: 900; box-shadow: 0 2px 8px rgba(0,181,181,0.15); border-bottom: 2px solid var(--color-primary-dark); }
 .header-inner { display: flex; align-items: center; justify-content: space-between; gap: 16px; }
-.header-center { flex: 1; display: flex; justify-content: center; }
+.header-center { flex: 1; display: flex; justify-content: center; container-type: inline-size; min-width: 0; }
 .logo-img { height: 100px; }
 .header-tel { display: flex; align-items: center; gap: 12px; color: var(--color-text-dark); padding: 0 12px; }
 .tel-icon { width: 24px; height: 24px; }
-.tel-label { font-size: 14px; color: var(--color-text-dark); opacity: 0.85; }
-.tel-number { font-size: 26px; font-weight: 700; color: var(--color-text-dark); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 10px; }
-.tel-hours { font-size: 13px; color: var(--color-text-dark); opacity: 0.75; }
+.tel-label { font-size: 14px; color: var(--color-text-dark); opacity: 0.85; white-space: nowrap; }
+.tel-number { font-size: 26px; font-weight: 700; color: var(--color-text-dark); letter-spacing: 0.04em; line-height: 1.1; margin-bottom: 10px; white-space: nowrap; }
+.tel-hours { font-size: 13px; color: var(--color-text-dark); opacity: 0.75; white-space: nowrap; }
+/* Email không được gãy dòng: font co theo bề rộng thực của header-center,
+   trừ đi ~300px phần cố định (icon + label + giờ làm việc + khoảng cách) */
+@supports (container-type: inline-size) {
+  .tel-number { font-size: clamp(13px, calc((100cqw - 300px) / 12.6), 26px); }
+}
 .btn-call-header-mobile { display: none; }
 .header-cta-image-button { background: transparent; border: 0; padding: 0; display: inline-flex; align-items: center; cursor: pointer; }
 .header-cta-image-button:hover { opacity: 0.9; }
@@ -287,6 +296,7 @@ span {
   flex: 1 1 auto;
   min-width: 0;
   padding: 20px 16px 64px 0;
+  container-type: inline-size;
 }
 .hero-brand {
   font-size: clamp(34px, 4.6vw, 68px);
@@ -307,6 +317,15 @@ span {
   line-height: 1.75;
   word-break: keep-all;
   margin-bottom: 40px;
+}
+/* Font hero co theo bề rộng THỰC của cột chữ (cqw) thay vì viewport (vw):
+   ở ~1100-1400px sidebar + ảnh chiếm chỗ khiến cột hẹp hơn nhiều so với
+   viewport, vw làm chữ quá to gây bẻ dòng xấu (業務プロセスの最|適化). */
+@supports (container-type: inline-size) {
+  .hero-brand { font-size: clamp(34px, 8cqw, 68px); }
+  .hero-headline { font-size: clamp(30px, 7.2cqw, 60px); }
+  .hero-subcopy { font-size: clamp(16px, 3.3cqw, 28px); }
+  .hero-checklist li { font-size: clamp(16px, 3.1cqw, 26px); }
 }
 .hero-subcopy .hero-accent { color: var(--color-accent-purple); font-weight: 900; }
 .hero-subcopy .hero-accent-orange { color: var(--color-cta-orange); font-weight: 900; }
@@ -445,6 +464,13 @@ section { padding: 80px 0; }
 .phase-row .col-4 .col-img-wrap {
   margin-top: 0;
   transform: translateY(-42px);
+}
+/* Màn siêu hẹp: cột checklist quá chật (≈145px) khiến cụm từ Nhật buộc phải
+   cắt giữa từ — xếp ảnh xuống dưới danh sách để dòng đủ rộng */
+@media (max-width: 400px) {
+  .phase-row .col-8 { width: 100%; }
+  .phase-row .col-4 { width: 100%; justify-content: center !important; }
+  .phase-row .col-4 .col-img-wrap { transform: none; max-width: 160px; margin: 8px auto 0; }
 }
 .bg-light-blue { background-color: var(--color-surface); }
 .border-end { border-right: 1px dashed var(--color-primary-dark) !important; }
@@ -694,10 +720,13 @@ section { padding: 80px 0; }
 .footer span,
 .footer li,
 .footer .copyright {
-  color: rgba(45, 54, 82, 0.8);
+  /* !important để thắng rule global `p { color: #140650 !important }` —
+     nếu không, text trực tiếp trong <p> (địa chỉ, "www.") đậm navy còn
+     text trong <span>/<a> (điện thoại, email, domain) lại nhạt, lệch nhau */
+  color: rgba(45, 54, 82, 0.8) !important;
 }
 .footer a:hover {
-  color: #2d3652;
+  color: #2d3652 !important;
 }
 .footer-about .logo {
   display: inline-flex;
@@ -1087,7 +1116,12 @@ section { padding: 80px 0; }
   .company-profile-page { padding: 24px 12px 40px; }
   .company-profile-inner { padding: 28px 18px 24px; }
   .company-profile-title { font-size: 24px; }
-  .company-profile-table th { width: 96px; white-space: normal; }
+  /* th đủ rộng cho nhãn 6 ký tự (ウェブサイト) không bị cắt giữa từ */
+  .company-profile-table th { width: 118px; white-space: normal; }
+  .company-profile-table th, .company-profile-table td { padding: 12px 10px; }
+  /* fixed + anywhere: URL/email dài không làm bảng tràn khỏi màn hẹp */
+  .company-profile-table { table-layout: fixed; }
+  .company-profile-table td { overflow-wrap: anywhere; }
 }
 
 /* ===== MEDIA QUERIES (集約) ===== */

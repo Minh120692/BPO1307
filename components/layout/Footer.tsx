@@ -60,10 +60,15 @@ export default function Footer() {
             </p>
             <p className="contact-email">
               <BiIcon className="me-2"><path d={BI_PATHS.envelopeFill} /></BiIcon>
-              <a href="mailto:nomoto-t@wacraft-jp.com">nomoto-t@wacraft-jp.com</a>
+              {/* wbr: chỉ được ngắt sau @; domain bọc nowrap để không gãy giữa chừng */}
+              <a href="mailto:nomoto-t@wacraft-jp.com" className="no-anywhere">
+                nomoto-t@<wbr /><span className="nb">wacraft-jp.com</span>
+              </a>
             </p>
-            <p className="contact-web">
-              <BiIcon className="me-2"><path d={BI_PATHS.globe} /></BiIcon>www.wacraft-jp.com
+            <p className="contact-web no-anywhere">
+              <BiIcon className="me-2"><path d={BI_PATHS.globe} /></BiIcon>
+              {/* bọc 1 span để inline-flex gap của <p> không chen khoảng hở giữa www. và domain */}
+              <span>www.<wbr /><span className="nb">wacraft-jp.com</span></span>
             </p>
           </div>
         </div>
