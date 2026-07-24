@@ -7,7 +7,7 @@ export default function ComparisonSection() {
       <div className="container-xl">
         <SectionHeader
           bgText="VALUE PROPOSITION"
-          className="mb-5"
+          className="mb-5 section-header-fit-bg"
           label="WA+CRAFT BPO"
           title="選ばれる理由"
           descClassName="mt-3"

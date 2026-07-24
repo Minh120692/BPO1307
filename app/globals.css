@@ -393,6 +393,12 @@ section { padding: 80px 0; }
 
 /* 旧クラス互換 */
 .section-header { margin-bottom: 48px; overflow: hidden; }
+/* Watermark dài (VALUE PROPOSITION): giữ 1 dòng, co font theo bề rộng cột để thẳng hàng với tiêu đề */
+.section-header-fit-bg { container-type: inline-size; }
+.section-header-fit-bg .section-en-bg {
+  white-space: nowrap;
+  font-size: clamp(24px, 7.2cqw, 132px);
+}
 
 /* ===== PROBLEMS ===== */
 .section-problems { background: var(--color-bg-soft); }
