@@ -755,6 +755,14 @@ section { padding: 80px 0; }
   position: relative;
   top: 5px;
 }
+/* Icon contact: to ngang cỡ chữ và căn giữa theo dòng chữ đầu
+   (line-height 1.7 × 17px ≈ 29px; icon 21px → đệm trên 4px) */
+.footer-contact p .bi {
+  width: 1.25em;
+  height: 1.25em;
+  flex-shrink: 0;
+  margin-top: 4px;
+}
 .footer-contact p,
 .footer-contact a {
   overflow-wrap: anywhere;

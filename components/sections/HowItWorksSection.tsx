@@ -6,7 +6,7 @@ export default function HowItWorksSection() {
     <section className="section-how" id="how">
       <div className="container-xl">
         <SectionHeader
-          bgText="HOW IT WORKS"
+          bgText="WORKFLOW"
           className="mb-5"
           label="ご利用の"
           title="流れ"
